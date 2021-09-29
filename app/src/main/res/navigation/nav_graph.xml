@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/createTripFragment"
+        android:name="com.example.android.grouptripexpense.createTrip.CreateTripFragment"
+        android:label="CreateTripFragment" >
+        <action
+            android:id="@+id/action_createTripFragment_to_addMembersFragment"
+            app:destination="@id/addMembersFragment"
+            app:popUpTo="@id/createTripFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_createTripFragment_to_expensesFragment"
+            app:destination="@id/expensesFragment"
+            app:popUpTo="@id/createTripFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addMembersFragment"
+        android:name="com.example.android.grouptripexpense.addMembers.AddMembersFragment"
+        android:label="AddMembersFragment" >
+        <action
+            android:id="@+id/action_addMembersFragment_to_expensesFragment"
+            app:destination="@id/expensesFragment"
+            app:popUpTo="@id/createTripFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.android.grouptripexpense.addExpense.AddExpenseFragment"
+        android:label="AddExpenseFragment" >
+        <action
+            android:id="@+id/action_addExpenseFragment_to_expensesFragment"
+            app:destination="@id/expensesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/expensesFragment"
+        android:name="com.example.android.grouptripexpense.ExpensesFragment"
+        android:label="ExpensesFragment" >
+        <action
+            android:id="@+id/action_expensesFragment_to_addExpenseFragment"
+            app:destination="@id/addExpenseFragment" />
+        <action
+            android:id="@+id/action_expensesFragment_to_createTripFragment"
+            app:destination="@id/createTripFragment"
+            app:popUpTo="@id/createTripFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/expenseTabFragment"
+        android:name="com.example.android.grouptripexpense.expenseTab.ExpenseTabFragment"
+        android:label="ExpenseTabFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.android.grouptripexpense.LoginFragment"
+        android:label="LoginFragment" />
+</navigation>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "368135692220",
+    "project_id": "grouptripexpense-1595952972959",
+    "storage_bucket": "grouptripexpense-1595952972959.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:368135692220:android:d20de5927fa4d801c695b9",
+        "android_client_info": {
+          "package_name": "com.example.android.grouptripexpense"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "368135692220-vebj0l91480hd3uqvb4jaajftrh0qs1f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.grouptripexpense",
+            "certificate_hash": "70253acfbd03a3f4c032207c0cc081eac26ba5a8"
+          }
+        },
+        {
+          "client_id": "368135692220-6uv24c9p2n1vhm456chibcgpmlq9umro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCePKBDRP5PKLGTHYOrHA_O_wBiDWS3IOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "368135692220-6uv24c9p2n1vhm456chibcgpmlq9umro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

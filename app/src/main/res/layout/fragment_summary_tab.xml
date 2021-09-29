@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.grouptripexpense.summaryTab.SummaryTabViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/expenses_total_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/expenses"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/expenses_total"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/expenses_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            android:textColor="#000"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/expenses_total_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/expenses_total_label"
+            app:layout_constraintTop_toTopOf="@+id/expenses_total_label" />
+
+        <TextView
+            android:id="@+id/divided_amount_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/divided_amount"
+            app:layout_constraintEnd_toStartOf="@+id/divided_amount"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/expenses_total_label" />
+
+        <TextView
+            android:id="@+id/divided_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@+id/divided_amount_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/divided_amount_label"
+            app:layout_constraintTop_toTopOf="@+id/divided_amount_label" />
+
+<!--        <View-->
+<!--            android:id="@+id/divider"-->
+<!--            style="@style/ViewDividerStyle"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/divided_amount_label" />-->
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/divided_amount_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/finish_trip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divided_amount_label">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/member_divided_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="1dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/finish_trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorAccent"
+            android:onClick="@{() -> viewModel.onFinishButtonClick()}"
+            android:text="@string/finish_trip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divided_amount_scrollview" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/expenses_total_label"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:text="@string/expenses"-->
+    <!--            android:textColor="#000"-->
+    <!--            android:textSize="18sp" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/expenses_total"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:layout_marginTop="20dp"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:textColor="#000"-->
+    <!--            android:textSize="18sp" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/divided_amount_label"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_below="@id/expenses_total_label"-->
+    <!--            android:layout_marginStart="16dp"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:text="@string/divided_amount"-->
+    <!--            android:textColor="#000"-->
+    <!--            android:textSize="18sp" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/divided_amount"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_below="@id/expenses_total"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:layout_marginEnd="16dp"-->
+    <!--            android:textColor="#000"-->
+    <!--            android:textSize="18sp" />-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/divider"-->
+    <!--            style="@style/ViewDividerStyle"-->
+    <!--            android:layout_below="@+id/divided_amount_label" />-->
+
+    <!--        <ScrollView-->
+    <!--            android:id="@+id/divided_amount_scrollview"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_below="@+id/divider"-->
+    <!--            android:fillViewport="true">-->
+
+    <!--            <androidx.recyclerview.widget.RecyclerView-->
+    <!--                android:id="@+id/member_divided_amount"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="20dp"-->
+    <!--                tools:layout_editor_absoluteX="1dp"-->
+    <!--                tools:layout_editor_absoluteY="1dp" />-->
+    <!--        </ScrollView>-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/finish_trip"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:layout_below="@+id/divided_amount_scrollview"-->
+    <!--            android:layout_marginBottom="20dp"-->
+    <!--            android:layout_alignParentBottom="true"-->
+    <!--            android:background="@color/colorAccent"-->
+    <!--            android:onClick="@{() -> viewModel.onFinishButtonClick()}"-->
+    <!--            android:text="@string/finish_trip" />-->
+
+    <!--    </RelativeLayout>-->
+</layout>

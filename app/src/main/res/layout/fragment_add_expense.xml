@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.android.grouptripexpense.addExpense.AddExpenseViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:transitionName="shared_element_container">
+
+        <!--        <Spinner-->
+        <!--            android:id="@+id/who_paid_spinner"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="65dp"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:prompt="@string/who_paid"-->
+        <!--            android:selectedItemPosition="@={viewModel.whoPaidItemIdPosition}"/>-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/who_paid"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:hint="@string/who_paid"
+            app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+            <AutoCompleteTextView
+                android:id="@+id/who_paid_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/expense_type_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/expense_type"
+            app:startIconDrawable="@drawable/ic_baseline_brunch_dining_24"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.expenseType}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/amount_input"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/amount"
+            app:startIconDrawable="@drawable/ic_baseline_monetization_on_24"
+            app:endIconMode="clear_text">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="@={viewModel.amount}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/expense_type_input"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:hint="@string/expense_type"-->
+        <!--            android:inputType="text"-->
+        <!--            android:text="@={viewModel.expenseType}"/>-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/amount_input"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="16dp"-->
+        <!--            android:layout_marginTop="20dp"-->
+        <!--            android:hint="@string/amount"-->
+        <!--            android:inputType="numberDecimal"-->
+        <!--            android:text="@={viewModel.amount}"/>-->
+
+        <Button
+            android:id="@+id/add_expense_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:enabled="@{viewModel.isAmountValid() &amp;&amp; viewModel.isExpenseTypeValid()}"
+            android:onClick="@{() -> viewModel.onAddExpenseButtonClick()}"
+            android:text="@string/add" />
+
+    </LinearLayout>
+</layout>
